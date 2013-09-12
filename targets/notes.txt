@@ -1,0 +1,8 @@
+function saveToFile() {
+$.post("save.php", {data : x}, function(){alert("File saved successfully")});
+    }
+	
+	<?php
+$data = $_POST['data'];
+file_put_contents("savetest.txt", $data);
+?>
