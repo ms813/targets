@@ -1,30 +1,32 @@
 <?php
 //action
 
-$minus = $_GET['minus'];
-$task = $_GET['task'];
+	$amount = $_GET['amount'];
+	$task = $_GET['task'];
 
 $vals = file_get_contents("vals.php");
-
-$arrayVals = explode(",",$vals);
+			$temp = explode (";", $vals);
+			$targets = explode("," , $temp[0]);
+			$remaining = explode("," , $temp[1]);
 
 switch ($task){
-    case "p":
-        $arrayVals[0] = $arrayVals[0] - $minus;
+    case "peerReview":
+        $remaining[0] = $remaining[0] - $amount;
         break;
-    case "e":
-        $arrayVals[1] = $arrayVals[1] - $minus;
+    case "editing":
+        $remaining[1] = $remaining[1] - $amount;
         break;
-    case "pr":
-        $arrayVals[2] = $arrayVals[2] - $minus;
+    case "proofing":
+        $remaining[2] = $remaining[2] - $amount;
         break;    
 }
-    
-$finalVals = implode(",",$arrayVals);
+$x = implode("," , $targets);
+$y = implode("," , $remaining);
+$z = $x.";".$y;
 
-file_put_contents("vals.php",$finalVals);
+file_put_contents("vals.php",$z);
 
-header("Location: test.php");
+header("Location: index.php");
 exit;
 
 ?>
