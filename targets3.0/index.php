@@ -1,9 +1,11 @@
 <?php
-			$team = $_COOKIE['team'];
-			$vals = file_get_contents("files/".$team.".php");
-			$temp = explode (";", $vals);
-			$targets = explode("," , $temp[0]);
-			$remaining = explode("," , $temp[1]);
+	if (isset($_COOKIE["team"])){
+	$team = $_COOKIE['team'];
+	} else $team = 'ana';
+	$vals = file_get_contents("files/".$team.".php");
+	$temp = explode (";", $vals);
+	$targets = explode("," , $temp[0]);
+	$remaining = explode("," , $temp[1]);
 ?>
 <html>
 	<head>
@@ -45,13 +47,13 @@
 		    </label>
 		</form>
 		</div>
-		<div class='peerReview'>
+		<div id='peerReview' class='counter'>
 		    <h2>Peer Review</h2>
-		    <span id='peerReviewTarget'>Target:
+		    Target:<span id='peerReviewTarget'>
 		        <?php echo $targets[0]; ?>
 		    </span>
 		    <br/>
-		    <span id='peerReviewRemaining'>Remaining:
+		    Remaining:<span id='peerReviewRemaining'>
 		        <?php echo $remaining[0]; ?>
 		    </span>
 		    <br/>
@@ -61,14 +63,19 @@
 		    <a id='peerReviewDecrement' href='decrement.php?task=peerReview&amount=1' class='action decrement'>Decrement</a>
 		    <a href='update.php?task=peerReview' id='peerReviewUpdate' class='action update'>Update</a>
 		    <a href='reset.php?task=peerReview' id='peerReviewReset' class='action reset'>Reset</a>
+			<div class='barOuter'>
+				<div class='barInner' id='peerReviewBar'>
+					<span>0%</span>
+				</div>
+			</div>
 		</div>
-		<div class='editing'>
+		<div id='editing' class='counter'>
 		    <h2>Editing</h2>
-		    <span id='editingTarget'>Target:
+		    Target:<span id='editingTarget'>
 		        <?php echo $targets[1]; ?>
 		    </span>
 		    <br/>
-		    <span id='editingRemaining'>Remaining:
+		    Remaining:<span id='editingRemaining'>
 		        <?php echo $remaining[1]; ?>
 		    </span>
 		    <br/>
@@ -77,14 +84,19 @@
 		    <a href='decrement.php?task=editing&amount=1' id='editingDecrement' class='action decrement'>Decrement</a>
 		    <a href='update.php?task=editing' id='editingUpdate' class='action update'>Update</a>
 		    <a href='reset.php?task=editing' id='editingReset' class='action reset'>Reset</a>
+			<div class='barOuter'>
+				<div class='barInner' id='editingBar'>
+					<span>0%</span>
+				</div>
+			</div>
 		</div>
-		<div class='proofing'>
+		<div id='proofing' class='counter'>
 		    <h2>Proofing</h2>
-		    <span id='proofingTarget'>Target:
+		    Target:<span id='proofingTarget'>
 		        <?php echo $targets[2]; ?>
 		    </span>
 		    <br/>
-		    <span id='proofingRemaining'>Remaining:
+		    Remaining:<span id='proofingRemaining'>
 		        <?php echo $remaining[2]; ?>
 		    </span>
 		    <br/>
@@ -94,6 +106,17 @@
 		    <a href='decrement.php?task=proofing&amount=1' id='proofingDecrement' class='action decrement'>Decrement</a>
 		    <a href='update.php?task=proofing' id='proofingUpdate' class='action update'>Update</a>
 		    <a href='reset.php?task=proofing' id='proofingReset' class='action reset'>Reset</a>
+			<div class='barOuter'>
+				<div class='barInner' id='proofingBar'>
+					<span>0%</span>
+				</div>
+			</div>
 		</div>
+		<div class='admin'>
+			<label>Admin Password:
+				<input id='adminPass' type='text' placeholder='"admin" by default'/>
+				<button id='adminButton'>Enter</button>
+				<button id='adminLogout'>Log out</button>
+			</label>
 	</body>
 </html>

@@ -10,22 +10,31 @@
 	
 	//needs some work when $remaining - $dif < 0
 	
-if($newTarget != null){	
+if($newTarget != 1){	
 switch ($task){
     case "peerReview":
         $dif = $newTarget - $targets[0];
-        $targets[0] = $newTarget;
-        $remaining[0] = $remaining[0] + $dif;
+		$targets[0] = $newTarget;
+		$remaining[0] = $remaining[0] + $dif;
+		if($remaining[0] < 0){
+			$remaining[0] = 0;
+		}		
         break;
     case "editing":
         $dif = $newTarget - $targets[1];
-        $targets[1] = $newTarget;
-        $remaining[1] = $remaining[1] + $dif;
+		$targets[1] = $newTarget;
+		$remaining[1] = $remaining[1] + $dif;
+		if($remaining[1] < 0){
+			$remaining[1] = 0;
+		}	
         break;
     case "proofing":
         $dif = $newTarget - $targets[2];
-        $targets[2] = $newTarget;
-        $remaining[2] = $remaining[2] + $dif;
+		$targets[2] = $newTarget;
+		$remaining[2] = $remaining[2] + $dif;
+		if($remaining[2] < 0){
+			$remaining[2] = 0;
+		}	
         break;    
 }
 }
