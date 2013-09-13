@@ -45,8 +45,8 @@
 		    />
 		    <br/>
 		    <a id='peerReviewButton' href='decrement.php?task=peerReview&amount=1' class='button'>Decrement</a>
-		    <a class='button'>Update</a>
-		    <a href='reset.php?task=editing' id='peerReviewReset' class='button reset'>Reset</a>
+		    <a href='update.php?task=peerReview' id='peerReviewUpdate' class='button update'>Update</a>
+		    <a href='reset.php?task=peerReview' id='peerReviewReset' class='button reset'>Reset</a>
 		</div>
 		<div class='editing'>
 		    <h2>Editing</h2>
@@ -61,7 +61,7 @@
 		    <input type='text' id='editingAmount' placeholder='1' class='amount' />
 		    <br/>
 		    <a href='decrement.php?task=editing&amount=1' id='editingButton' class='button'>Decrement</a>
-		    <a class='button'>Update</a>
+		    <a href='update.php?task=editing' id='editingUpdate' class='button update'>Update</a>
 		    <a href='reset.php?task=editing' id='editingReset' class='button reset'>Reset</a>
 		</div>
 		<div class='proofing'>
@@ -78,7 +78,7 @@
 		    />
 		    <br/>
 		    <a href='decrement.php?task=proofing&amount=1' id='proofingButton' class='button'>Decrement</a>
-		    <a class='button'>Update</a>
+		    <a href='update.php?task=proofing' id='proofingUpdate' class='button update'>Update</a>
 		    <a href='reset.php?task=proofing' id='proofingReset' class='button reset'>Reset</a>
 		</div>
 	</body>
