@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('input').change(function(){
+	$('.amount').change(function(){
 		update(event);
 	});
 	
