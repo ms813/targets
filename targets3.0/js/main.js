@@ -12,11 +12,25 @@ $(document).ready(function(){
 			$('#showControl').text("Hide Admin Controls");
 		}
 	});
+	
+	$('.reset').click(function(){
+        reset(event);
+	});
 });
 
 function update(event){
-	var parent = $(event.target).parent();
-	var task = parent.attr('class');
+	var task = getParentTask(event);
 	var amount = $('#' + task + 'Amount').val();
 	$('#' + task + 'Button').attr("href", "action.php?task="+task+"&amount="+amount);
+}
+
+function reset(event){
+    var target = prompt("Enter new target (Remaining will be reset):");
+    var task = getParentTask(event);
+    $('#' + task + 'Reset').attr("href", "reset.php?task="+task+"&target="+target);
+}
+
+function getParentTask(event){
+    var parent = $(event.target).parent();
+	return parent.attr('class');
 }
