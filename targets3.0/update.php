@@ -1,11 +1,13 @@
 <?php
-    $newTarget = $_GET['target'];
+    $newTarget = $_GET['amount'];
 	$task = $_GET['task'];
 	
 	$vals = file_get_contents("vals.php");
 	$temp = explode (";", $vals);
 	$targets = explode("," , $temp[0]);
 	$remaining = explode("," , $temp[1]);
+	
+	//needs some work when $remaining - $dif < 0
 	
 if($newTarget != null){	
 switch ($task){

@@ -1,5 +1,5 @@
 <?php
-    $target = $_GET['target'];
+    $target = $_GET['amount'];
 	$task = $_GET['task'];
 	
 	$vals = file_get_contents("vals.php");

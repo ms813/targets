@@ -4,10 +4,10 @@
 	$amount = $_GET['amount'];
 	$task = $_GET['task'];
 
-$vals = file_get_contents("vals.php");
-			$temp = explode (";", $vals);
-			$targets = explode("," , $temp[0]);
-			$remaining = explode("," , $temp[1]);
+	$vals = file_get_contents("vals.php");
+	$temp = explode (";", $vals);
+	$targets = explode("," , $temp[0]);
+	$remaining = explode("," , $temp[1]);
 
 switch ($task){
     case "peerReview":
