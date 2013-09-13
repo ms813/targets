@@ -4,12 +4,14 @@
 		<script src="js/main.js"></script>
 	</head>
 	<body>
+	
 		<?php
 			$vals = file_get_contents("vals.php");
 			$temp = explode (";", $vals);
 			$targets = explode("," , $temp[0]);
 			$remaining = explode("," , $temp[1]);
 		?>
+		<h1>Testing if push to Git works</h1>
 		<div class='peerReview'>
 			<h2>Peer Review</h2>
 			<span id='peerReviewTarget'>Target: <?php echo $targets[0]; ?></span><br/>
