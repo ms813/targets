@@ -1,23 +1,37 @@
+<?php
+			$team = $_COOKIE['team'];
+			$vals = file_get_contents("files/".$team.".php");
+			$temp = explode (";", $vals);
+			$targets = explode("," , $temp[0]);
+			$remaining = explode("," , $temp[1]);
+?>
 <html>
 	<head>
+	
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$('#teamSelect').val('<?php echo $team ?>');
+			var team = $('#teamSelect option:selected').html()
+			$('.currentTeam').text("Currently viewing: " + team);
+			
+			$('#teamSelect').change(function(){
+				changeTeam.submit();
+			});
+		});
+		</script>
 		<script src="js/main.js"></script>
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 	</head>
 	<body>
-	
-		<?php
-			$vals = file_get_contents("vals.php");
-			$temp = explode (";", $vals);
-			$targets = explode("," , $temp[0]);
-			$remaining = explode("," , $temp[1]);
-		?>
 		<div class='title'>
 		    <h1>Target Counter 3.0</h1>
+			<h2 class='currentTeam'>Currently viewing:</h2>
 		</div>
 		<div class='teamSelect'>
-		    <label>Team:
-		        <select id='teamSelect'>
+		<form action='cookies.php' method='post' name='changeTeam'>
+		    <label>Change team:
+		        <select name='team' id='teamSelect'>
 		            <option value='ana'>Analytical</option>
 		            <option value='bio'>Biological</option>
 		            <option value='gen'>General</option>
@@ -29,7 +43,7 @@
 		            <option value='phys'>Physical</option>
 		        </select>
 		    </label>
-		    <button id='defaultTeamButton'>Set as default team</button>
+		</form>
 		</div>
 		<div class='peerReview'>
 		    <h2>Peer Review</h2>
@@ -44,9 +58,9 @@
 		    <input type='text' id='peerReviewAmount' placeholder='1' class='amount'
 		    />
 		    <br/>
-		    <a id='peerReviewDecrement' href='decrement.php?task=peerReview&amount=1' class='button decrement'>Decrement</a>
-		    <a href='update.php?task=peerReview' id='peerReviewUpdate' class='button update'>Update</a>
-		    <a href='reset.php?task=peerReview' id='peerReviewReset' class='button reset'>Reset</a>
+		    <a id='peerReviewDecrement' href='decrement.php?task=peerReview&amount=1' class='action decrement'>Decrement</a>
+		    <a href='update.php?task=peerReview' id='peerReviewUpdate' class='action update'>Update</a>
+		    <a href='reset.php?task=peerReview' id='peerReviewReset' class='action reset'>Reset</a>
 		</div>
 		<div class='editing'>
 		    <h2>Editing</h2>
@@ -60,9 +74,9 @@
 		    <br/>
 		    <input type='text' id='editingAmount' placeholder='1' class='amount' />
 		    <br/>
-		    <a href='decrement.php?task=editing&amount=1' id='editingDecrement' class='button decrement'>Decrement</a>
-		    <a href='update.php?task=editing' id='editingUpdate' class='button update'>Update</a>
-		    <a href='reset.php?task=editing' id='editingReset' class='button reset'>Reset</a>
+		    <a href='decrement.php?task=editing&amount=1' id='editingDecrement' class='action decrement'>Decrement</a>
+		    <a href='update.php?task=editing' id='editingUpdate' class='action update'>Update</a>
+		    <a href='reset.php?task=editing' id='editingReset' class='action reset'>Reset</a>
 		</div>
 		<div class='proofing'>
 		    <h2>Proofing</h2>
@@ -77,9 +91,9 @@
 		    <input type='text' id='proofingAmount' placeholder='1' class='amount'
 		    />
 		    <br/>
-		    <a href='decrement.php?task=proofing&amount=1' id='proofingDecrement' class='button decrement'>Decrement</a>
-		    <a href='update.php?task=proofing' id='proofingUpdate' class='button update'>Update</a>
-		    <a href='reset.php?task=proofing' id='proofingReset' class='button reset'>Reset</a>
+		    <a href='decrement.php?task=proofing&amount=1' id='proofingDecrement' class='action decrement'>Decrement</a>
+		    <a href='update.php?task=proofing' id='proofingUpdate' class='action update'>Update</a>
+		    <a href='reset.php?task=proofing' id='proofingReset' class='action reset'>Reset</a>
 		</div>
 	</body>
 </html>

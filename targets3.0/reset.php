@@ -1,8 +1,9 @@
 <?php
     $target = $_GET['amount'];
 	$task = $_GET['task'];
-	
-	$vals = file_get_contents("vals.php");
+	$team = $_GET['team'];
+
+	$vals = file_get_contents("files/".$team.".php");
 	$temp = explode (";", $vals);
 	$targets = explode("," , $temp[0]);
 	$remaining = explode("," , $temp[1]);
@@ -28,8 +29,8 @@ $x = implode("," , $targets);
 $y = implode("," , $remaining);
 $z = $x.";".$y;
 
-file_put_contents("vals.php",$z);
-	
-	header("Location: index.php");
+file_put_contents("files/".$team.".php",$z);
+
+header("Location: index.php");
     exit;
 ?>
