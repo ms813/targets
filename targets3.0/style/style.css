@@ -1,3 +1,11 @@
+h1{ 
+	color:#2980b9
+}
+
+.main-content{
+	padding-top: 70px;
+}
+
 .action{
     background: #26abe2;
     border-radius: 6px;
@@ -14,7 +22,9 @@
 
 .counter{
 	display:inline-block;
-	width:33%;
+	width:30%;
+	padding:15px;
+	border-style:outset;
 }
 
 .barOuter{
@@ -33,4 +43,20 @@
 	background: #26abe2;
 	text-align:center;
 	border-radius: 6px;
+}
+
+.header{
+	position:absolute;
+    top: 0;
+    background-color: #DDEEEE;
+    width: 100%;
+    border-bottom:outset;
+}
+
+.header div{
+	display:inline-block;
+}
+
+.right{
+	float:right;
 }

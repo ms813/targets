@@ -7,9 +7,9 @@
 	$targets = explode("," , $temp[0]);
 	$remaining = explode("," , $temp[1]);
 ?>
+
 <html>
-	<head>
-	
+	<head>	
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
@@ -26,11 +26,22 @@
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 	</head>
 	<body>
-		<div class='title'>
-		    <h1>Target Counter 3.0</h1>
-			<h2 class='currentTeam'>Currently viewing:</h2>
-		</div>
+		<div class='header'>
+			<div class='title'>
+				<h1>Target Counter 3.0</h1>				
+			</div>
+			<div class='admin right'>
+				<label>Admin Login:
+					<input id='adminPass' type='text' placeholder='"admin" by default'/>
+					<button id='adminButton'>Enter</button>
+					<button id='adminLogout'>Log out</button>
+				</label><br/>
+				<a id='adminPage' href='admin.php'>Admin Page</a>
+			</div>
+		</div>	
+		<div class='main-content'>
 		<div class='teamSelect'>
+		<h2 class='currentTeam'>Currently viewing:</h2>
 		<form action='cookies.php' method='post' name='changeTeam'>
 		    <label>Change team:
 		        <select name='team' id='teamSelect'>
@@ -112,11 +123,6 @@
 				</div>
 			</div>
 		</div>
-		<div class='admin'>
-			<label>Admin Password:
-				<input id='adminPass' type='text' placeholder='"admin" by default'/>
-				<button id='adminButton'>Enter</button>
-				<button id='adminLogout'>Log out</button>
-			</label>
+		</div>
 	</body>
 </html>

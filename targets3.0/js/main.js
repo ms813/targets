@@ -23,6 +23,7 @@ $(document).ready(function(){
 
 function init(){
 	updateBars();	
+	checkZero();
 	checkAdmin();
 }
 
@@ -30,7 +31,7 @@ function adminLogin(){
 	var pass = 'admin';
 	var attempt = $('#adminPass').val();
 	if(pass == attempt){		
-		setCookie('admin',true,30);
+		setCookie('admin',true, 30);
 		checkAdmin();
 	} else{	
 		alert('Incorrect password!');
@@ -41,9 +42,29 @@ function checkAdmin(){
 	if(getCookie('admin')){
 		$('.update').show(1000);
 		$('.reset').show(1000);
+		$('#adminPage').show(1000);
 	} else{
 		$('.update').hide();
 		$('.reset').hide();
+		$('#adminPage').hide();
+	}
+}
+
+function checkZero(){
+	if(parseInt($('#peerReviewRemaining').text()) <= 0){
+		$('#peerReviewDecrement').click(function(e){
+			e.preventDefault();
+		});
+	}
+	if(parseInt($('#editingRemaining').text()) <= 0){
+		$('#editingDecrement').click(function(e){
+			e.preventDefault();
+		});
+	}
+	if(parseInt($('#proofingRemaining').text()) <= 0){
+		$('#proofingDecrement').click(function(e){
+			e.preventDefault();
+		});
 	}
 }
 
