@@ -61,6 +61,11 @@ h1{
 	display:inline-block;
 }
 
+td{
+	text-align:center;
+	width:150px;
+}
+
 .right{
 	float:right;
 }
