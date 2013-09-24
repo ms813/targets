@@ -60,3 +60,7 @@ h1{
 .right{
 	float:right;
 }
+
+input[type="text"]{
+    width:100%;
+}
