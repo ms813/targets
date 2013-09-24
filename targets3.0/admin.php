@@ -7,8 +7,7 @@
 	<body>
 		<script>		
 			$(document).ready(function(){
-			var counter = 0;
-
+			var counter = 0;			
 				$('#colour').click(function(){
 				if(counter % 2 === 0){
 				$("#overview td").each(function(){
@@ -47,6 +46,7 @@
 				}
 				counter++;
 				});
+				$('#colour').trigger('click');
 			});
 			
 			function rgb2hex(rgb) {
