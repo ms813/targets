@@ -32,11 +32,11 @@
 			</div>
 			<div class='admin right'>
 				<label>Admin Login:
-					<input id='adminPass' type='text' placeholder='"admin" by default'/>
+					<input class='pass' id='adminPass' type='text' placeholder='"admin" by default'/>
 					<button id='adminButton'>Enter</button>
 					<button id='adminLogout'>Log out</button>
 				</label><br/>
-				<a id='adminPage' href='admin.php'>Admin Page</a>
+				<a id='adminPage' class='button' href='admin.php'>Admin Page</a>
 			</div>
 		</div>	
 		<div class='main-content'>
