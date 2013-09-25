@@ -6,6 +6,29 @@
 	$temp = explode (";", $vals);
 	$targets = explode("," , $temp[0]);
 	$remaining = explode("," , $temp[1]);
+	
+	$personal;
+	
+	if(isset($_COOKIE[$team.'personal'])){
+		$c = $_COOKIE[$team.'personal'];
+	} else{
+		$personal = array(0,0,0);			
+		setcookie($team."personal", implode(",", $personal), time()+31536000);
+	}
+	$personal = explode(",", $c);
+	
+	function resetPersonal(){
+		$personal = array(0,0,0);			
+		setcookie("anapersonal", implode(",", $personal), time()+31536000);
+		setcookie("apppersonal", implode(",", $personal), time()+31536000);
+		setcookie("biopersonal", implode(",", $personal), time()+31536000);
+		setcookie("genpersonal", implode(",", $personal), time()+31536000);
+		setcookie("inorgpersonal", implode(",", $personal), time()+31536000);
+		setcookie("intpersonal", implode(",", $personal), time()+31536000);
+		setcookie("matpersonal", implode(",", $personal), time()+31536000);
+		setcookie("orgpersonal", implode(",", $personal), time()+31536000);
+		setcookie("physpersonal", implode(",", $personal), time()+31536000);
+	}
 ?>
 
 <html>
@@ -69,8 +92,17 @@
 		        <?php echo $remaining[0]; ?>
 		    </span>
 		    <br/>
-		    <input type='text' id='peerReviewAmount' placeholder='1' class='amount'
-		    />
+			Personal Tally:<span id='peerReviewPersonal'>
+				<?php 
+				if($targets[0] - $remaining[0] !== 0){
+					$x = round(($personal[0] /($targets[0] - $remaining[0]))*100, 0);
+				} else{
+					$x = 0;
+				}
+				echo $personal[0]. " (".$x."%)"; ?>
+			</span>
+			<br/>
+		    <input type='text' id='peerReviewAmount' placeholder='1' class='amount'/>
 		    <br/>
 		    <a id='peerReviewDecrement' href='decrement.php?task=peerReview&amount=1' class='action decrement'>Decrement</a>
 		    <a href='update.php?task=peerReview' id='peerReviewUpdate' class='action update'>Update</a>
@@ -90,8 +122,18 @@
 		    Remaining:<span id='editingRemaining'>
 		        <?php echo $remaining[1]; ?>
 		    </span>
-		    <br/>
-		    <input type='text' id='editingAmount' placeholder='1' class='amount' />
+		    <br/>			
+			Personal Tally:<span id='peerReviewPersonal'>
+				<?php 
+				if($targets[1] - $remaining[1] !== 0){
+					$x = round(($personal[1] /($targets[1] - $remaining[1]))*100, 0);
+				} else{
+					$x = 0;
+				}
+				echo $personal[1]. " (".$x."%)"; ?>
+			</span>
+			<br/>
+		    <input type='text' id='editingAmount' placeholder='1' class='amount'/>
 		    <br/>
 		    <a href='decrement.php?task=editing&amount=1' id='editingDecrement' class='action decrement'>Decrement</a>
 		    <a href='update.php?task=editing' id='editingUpdate' class='action update'>Update</a>
@@ -111,7 +153,17 @@
 		    Remaining:<span id='proofingRemaining'>
 		        <?php echo $remaining[2]; ?>
 		    </span>
-		    <br/>
+		    <br/>			
+			Personal Tally:<span id='peerReviewPersonal'>
+				<?php
+				if($targets[2] - $remaining[2] !== 0){
+					$x = round(($personal[2] /($targets[2] - $remaining[2]))*100, 0);
+				} else{
+					$x = 0;
+				}
+				echo $personal[2]. " (".$x."%)"; ?>
+			</span>
+			<br/>
 		    <input type='text' id='proofingAmount' placeholder='1' class='amount'
 		    />
 		    <br/>
@@ -123,6 +175,9 @@
 					<span>0%</span>
 				</div>
 			</div>
+		</div>
+		<div>
+			<a class='button' id='resetPersonal'>Reset Personal Counters</a>
 		</div>
 		</div>
 	</body>
