@@ -16,19 +16,6 @@
 		setcookie($team."personal", implode(",", $personal), time()+31536000);
 	}
 	$personal = explode(",", $c);
-	
-	function resetPersonal(){
-		$personal = array(0,0,0);			
-		setcookie("anapersonal", implode(",", $personal), time()+31536000);
-		setcookie("apppersonal", implode(",", $personal), time()+31536000);
-		setcookie("biopersonal", implode(",", $personal), time()+31536000);
-		setcookie("genpersonal", implode(",", $personal), time()+31536000);
-		setcookie("inorgpersonal", implode(",", $personal), time()+31536000);
-		setcookie("intpersonal", implode(",", $personal), time()+31536000);
-		setcookie("matpersonal", implode(",", $personal), time()+31536000);
-		setcookie("orgpersonal", implode(",", $personal), time()+31536000);
-		setcookie("physpersonal", implode(",", $personal), time()+31536000);
-	}
 ?>
 
 <html>
@@ -177,7 +164,7 @@
 			</div>
 		</div>
 		<div>
-			<a class='button' id='resetPersonal'>Reset Personal Counters</a>
+			<a href='cookies.php?reset=true' class='button' id='resetPersonal'>Reset Personal Counters</a>
 		</div>
 		</div>
 	</body>
