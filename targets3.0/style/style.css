@@ -1,9 +1,10 @@
 h1{ 
-	color:#2980b9
+	color:#2980b9;
+	padding:5px;
 }
 
 .main-content{
-	padding-top: 70px;
+	padding-top: 20px;
 }
 
 .action, .button{
@@ -19,17 +20,58 @@ h1{
     text-decoration:none;
     padding:1px;
 	cursor: pointer;
+	text-align:center;
+}
+
+.action{
+	width:30%;
+}
+
+.action:hover, .button:hover{
+	color: orange;
+}
+
+.amount{
+	font-weight:bold;
+	text-align:center;
+	font-size:140%;
+}
+
+.amount:hover{
+	box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 3px 3px #000;
+	-moz-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 3px 3px #000;
+    -webkit-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 3px 3px #000;
 }
 
 .counter{
+	background-color: #DDEEEE;
 	display:inline-block;
 	width:30%;
 	padding:15px;
-	border-style:outset;
+	box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+	-moz-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+    -webkit-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+    border: 1px solid #888;
+}
+
+.counter span:hover{
+	color:orange;
+}
+
+.counter span{
+	font-size:140%;
+	vertical-align:middle;
+	text-align:center;
+	width:100%;
 }
 
 .counter input[type="text"]{
     width:100%;
+}
+
+body {
+    background: rgb(236, 236, 236);
+    font-family:sans-serif;
 }
 
 .barOuter{
@@ -50,21 +92,85 @@ h1{
 	border-radius: 6px;
 }
 
+.subheading{
+	position:relative; 
+	left:50px;
+}
+
 .header{
     top: 0;
-    height:100px;
+    height:120px;
     background-color: #DDEEEE;
     width: 100%;
     border-bottom:outset;
 }
 
-.header div{
-	display:inline-block;
+.toolbar, .teamSelect{
+	text-align:center;
+	display:block;
+	border-radius: 6px;
+    box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+	-moz-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+    -webkit-box-shadow: 0 1px 1px #666,0 2px 1px #666,0 3px 1px #666,0 4px 1px #666,0 5px 5px #000;
+    border: 1px solid #888;
+	position:relative;
+	top:20px;
+	margin:auto;
+	background-color: #DDEEEE;
 }
 
-td{
-	text-align:center;
+.toolbar{
+	padding:30px;
+	width:60%;
+}
+
+.teamSelect{
+	width:40%;
+}
+
+.counters{
+	position:relative;
+	top:60px;
+}
+
+h3{
+	color:green;
+}
+
+td{	
 	width:150px;
+	filter: alpha(opacity = 50);
+}
+
+.ctable td:hover{
+	color:orange;
+}
+
+
+th{
+	width:150px;
+}
+
+table{
+	width:100%;
+}
+
+.relative{
+	position:relative;
+	top:60px;
+}
+
+.admin td{
+	height:40px;
+	font-weight:bold;
+}
+
+.left-align{
+	text-align:left;
+}
+
+.center-align{
+	text-align:center;
 }
 
 .right{

@@ -32,18 +32,14 @@ function adminLogin(){
 	var attempt = $('#adminPass').val();
 	if(pass == attempt){		
 		setCookie('admin',true, 30);
-		checkAdmin();
+		location.reload();
 	} else{	
 		alert('Incorrect password!');
 	}	
 }
 
 function checkAdmin(){
-	if(getCookie('admin')){
-		$('.update').show(1000);
-		$('.reset').show(1000);
-		$('#adminPage').show(1000);
-	} else{
+	if(!getCookie('admin')){
 		$('.update').hide();
 		$('.reset').hide();
 		$('#adminPage').hide();
@@ -76,9 +72,14 @@ function action(event){
 		amount = 1;
 	}
 	
-	var a = $(event.target).attr('class').split(" ");
-	var act = capitaliseFirstLetter(a[1]); // this is to get the id correct e.g. peerReviewDecrement
-	$('#' + task + act).attr("href", a[1]+".php?team="+team+"&task="+task+"&amount="+amount);
+	if(isInt(amount)){
+		var a = $(event.target).attr('class').split(" ");
+		var act = capitaliseFirstLetter(a[1]); // this is to get the id correct e.g. peerReviewDecrement
+		$('#' + task + act).attr("href", a[1]+".php?team="+team+"&task="+task+"&amount="+amount);
+	} else{
+		alert("Please enter a valid integer!");
+		event.preventDefault();
+	}
 }
 
 function getParentTask(event){
@@ -140,4 +141,8 @@ function getCookie(c_name) {
         c_value = unescape(c_value.substring(c_start, c_end));
     }
     return c_value;
+}
+
+function isInt(n) {
+    return n % 1 === 0;
 }

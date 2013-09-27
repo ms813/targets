@@ -5,6 +5,12 @@
 	</head>
 	
 	<body>
+		<div class='header'>
+			<div class='title'>
+				<h1>Target Counter</h1>	
+				<h2 class='subheading'>Managerial Overview</h2>
+			</div>
+		</div>
 		<script>		
 			$(document).ready(function(){
 			var counter = 0;			
@@ -57,12 +63,12 @@
 				return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 			}
 		</script>
-	<div><a class='button' href='index.php'>Main page</a></div><br/>
+		<div class='main-content'>
 	<?php 
 	    $teams = array("Analytical", "Biological", "General", "Inorganic", "Interfaces","Materials","Organic","Organic Applications", "Physical");
 	    $teamCodes = array("ana", "bio", "gen", "inorg", "int", "mat", "org", "app", "phys");
 	    
-	    echo "<table id='overview' border='1'>";
+	    echo "<table class='center-align' id='overview' border='1'>";
 		    echo "<tr>";
 		        echo "<th>Team</th>";
 		        echo "<th>Peer Review</th>";
@@ -126,6 +132,22 @@
 			echo "<tfoot>* Hours calculated using Peer review  - 20 mins, Editing - 2 hours, Proofing - 1 hour.</tfoot>";
 	    echo "</table>";	
 	?>
-	<a class='action' id='colour'>Toggle Colour</a>
+	<br/>
+		<div class='center-align'>
+			<fieldset class='toolbar'>
+				<legend align='left'>Toolbar</legend>
+				<table class='center-align'>
+					<tr>
+						<td>
+							<a class='action' id='colour'>Toggle Colour</a>
+						</td>
+						<td>
+							<div><a class='button' href='index.php'>Main page</a></div>
+						</td>	
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+	</div>
 	</body>
 </html>

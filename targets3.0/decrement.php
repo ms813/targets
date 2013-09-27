@@ -20,22 +20,30 @@
 	}
 	
 	
-	
+	$i;
 
 switch ($task){
     case "peerReview":
-        $remaining[0] = $remaining[0] - $amount;
-		$personal[0] += $amount;
+		$i = 0;
         break;
     case "editing":
-        $remaining[1] = $remaining[1] - $amount;
-		$personal[1] += $amount;
-        break;
+		$i = 1;
+        break;		
     case "proofing":
-        $remaining[2] = $remaining[2] - $amount;
-		$personal[2] += $amount;
+		$i = 2;
         break;    
 }
+
+$temp = $remaining[$i];
+        $remaining[$i] = $remaining[$i] - $amount;
+		
+		if($remaining[$i] < 0){
+			$remaining[$i] = 0;
+			$personal[$i] += $temp;
+		} else{
+			$personal[$i] += $amount;
+		}
+
 $x = implode("," , $targets);
 $y = implode("," , $remaining);
 $z = $x.";".$y;
