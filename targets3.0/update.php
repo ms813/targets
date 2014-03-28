@@ -10,7 +10,7 @@
 	
 	//needs some work when $remaining - $dif < 0
 	
-if($newTarget > 1){	
+if($newTarget > 0){	
 switch ($task){
     case "peerReview":
         $dif = $newTarget - $targets[0];

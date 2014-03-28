@@ -60,11 +60,13 @@
 							<option value='bio'>Biological</option>
 							<option value='gen'>General</option>
 							<option value='inorg'>Inorganic</option>
-							<option value='int'>Interfaces</option>
 							<option value='mat'>Materials</option>
 							<option value='org'>Organic</option>
-							<option value='app'>Organic Applications</option>
 							<option value='phys'>Physical</option>
+							<option value='poly'>Polymer</option>
+							<option value='RAT'>RA - Transfers</option>
+							<option value='RAD'>RA - Direct (Energy, Materials, Nano)</option>
+							<option value='RAO'>RA - Direct (Other)</option>
 						</select>
 					</label>
 				</form>

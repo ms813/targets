@@ -8,7 +8,7 @@
 	$targets = explode("," , $temp[0]);
 	$remaining = explode("," , $temp[1]);
 	
-if($target > 1){	
+if($target > 0){	
 switch ($task){
     case "peerReview":
         $targets[0] = $target;
